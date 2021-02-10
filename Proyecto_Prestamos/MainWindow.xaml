@@ -5,8 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Proyecto_Prestamos"
         mc:Ignorable="d"
+        Icon="/Resources/icon.png"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="30*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="30*"/>
+            <ColumnDefinition Width="30*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Usuario" Grid.Row="1" Grid.Column="1" FontSize="20"/>
+        <TextBox x:Name="UsuarioTextBox" Grid.Row="1" Grid.Column="3" FontSize="20"/>
 
+        <Label Content="Clave" Grid.Row="3" Grid.Column="1" FontSize="20"/>
+        <PasswordBox x:Name="ClavePasswordBox" Grid.Row="3" Grid.Column="3" FontSize="20"/>
+
+        <Button Style="{StaticResource ButtonStyle}" x:Name="LoginButton" Content="Login" Grid.Column="3" Grid.Row="5" FontSize="20" HorizontalContentAlignment="Right" Width="140" Click="LoginButton_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="Resources/login.png" Stretch="Uniform" AlignmentX="Left"/>
+            </Button.Background>
+        </Button>
+
+        <Button Style="{StaticResource ButtonStyle}" x:Name="RecuperarButton" Content="Recuperar" Grid.Column="1" Grid.Row="5" FontSize="20" HorizontalContentAlignment="Right" Width="139" Click="RecuperarButton_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="Resources/buscar.png" Stretch="Uniform" AlignmentX="Left"/>
+            </Button.Background>
+        </Button>
     </Grid>
 </Window>
