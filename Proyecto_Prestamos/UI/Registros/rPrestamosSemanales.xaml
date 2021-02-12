@@ -179,7 +179,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="21" Grid.Column="3">
-            <Button x:Name="RemoverButton" Content="Remover" HorizontalContentAlignment="Right" FontSize="14" Width="80" Click="RemoverButton_Click">
+            <Button x:Name="RemoverButton" Content="Remover" HorizontalContentAlignment="Right" FontSize="14" Width="80"><!--Click="RemoverButton_Click"-->
                 <Button.Background>
                     <ImageBrush Stretch="Uniform" ImageSource="/Resources/Remover.png" AlignmentX="Left"/>
                 </Button.Background>
@@ -265,7 +265,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="27" Grid.Column="3">
-            <Button x:Name="GuardarButton" Content="Guardar" HorizontalContentAlignment="Right" FontSize="16" Width="90" Click="GuardarButton_Click">
+            <Button x:Name="GuardarButton" Content="Guardar" HorizontalContentAlignment="Right" FontSize="16" Width="90"><!--Click="GuardarButton_Click"-->
                 <Button.Background>
                     <ImageBrush Stretch="Uniform" ImageSource="/Resources/guardar.png" AlignmentX="Left"/>
                 </Button.Background>
