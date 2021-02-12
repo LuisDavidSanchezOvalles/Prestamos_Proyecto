@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Proyecto_Prestamos.UI.Registros"
         xmlns:src="clr-namespace:Proyecto_Prestamos.Validaciones"
         mc:Ignorable="d"
+        Icon="/Resources/icon.png"
         Title="rPrestamosSemanales" Height="500" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
