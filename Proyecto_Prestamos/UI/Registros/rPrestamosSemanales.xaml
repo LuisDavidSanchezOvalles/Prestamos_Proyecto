@@ -38,6 +38,18 @@
             <RowDefinition Height="7*"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="7*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="7*"/>
             <RowDefinition Height="10*"/>
             <RowDefinition Height="7*"/>
             <RowDefinition Height="1*"/>
@@ -52,7 +64,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="1" Grid.Column="1">
-            <Label Content="PrestamosSemanaId:"  FontSize="16"/>
+            <Label Content="PrestamosSemanaId:"/>
         </StackPanel>
 
         <TextBox Style="{StaticResource TextBoxStyle}" x:Name="PrestamosSemanasIdTextBox" Grid.Row="1" Grid.Column="3" FontSize="17">
@@ -66,7 +78,7 @@
         </TextBox>
         
         <StackPanel Grid.Row="3" Grid.Column="1">
-            <Label Content="ClienteId:"  FontSize="16"/>
+            <Label Content="ClienteId:"/>
         </StackPanel>
 
         <StackPanel Grid.Row="3" Grid.Column="3">
@@ -82,11 +94,11 @@
         </StackPanel>
 
         <StackPanel Grid.Row="5" Grid.Column="1">
-            <Label Content="Fecha Inicio:"  FontSize="16"/>
+            <Label Content="Fecha Inicio:"/>
         </StackPanel>
 
         <StackPanel Grid.Row="5" Grid.Column="3">
-            <DatePicker Style="{StaticResource DatePickerStyle}" x:Name="FechaDatePicker" FontSize="16">
+            <DatePicker Style="{StaticResource DatePickerStyle}" x:Name="FechaDatePicker" >
                 <DatePicker.SelectedDate>
                     <Binding Path="prestamosSemanas.FechaInicio" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <!--<Binding.ValidationRules>
@@ -98,45 +110,69 @@
         </StackPanel>
 
         <StackPanel Grid.Row="7" Grid.Column="1">
-            <Label Content="Total:" FontSize="16"/>
+            <Label Content="Descripción:"/>
         </StackPanel>
 
         <StackPanel Grid.Row="7" Grid.Column="3">
-            <Label x:Name="TotalLabel" FontSize="17" Content="{Binding Path=ventas.Total, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="DescripcionTextBox">
+                <TextBox.Text>
+                    <Binding Path="prestamosSemanas.Descripcion" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                        
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
         </StackPanel>
 
         <StackPanel Grid.Row="9" Grid.Column="1">
-            <Label Content="Balance:" FontSize="16"/>
+            <Label Content="Prestamo:"/>
         </StackPanel>
 
         <StackPanel Grid.Row="9" Grid.Column="3">
-            <Label x:Name="BalanceLabel" Content="{Binding Path=ventas.Balance, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" FontSize="16"/>
+            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="PrestamoTextBox" FontSize="17">
+                <TextBox.Text>
+                    <Binding Path="prestamosSemanas.Prestamo" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
         </StackPanel>
 
         <StackPanel Grid.Row="11" Grid.Column="1">
-            <Label Content="ContratoId:"  FontSize="16"/>
+            <Label Content="Interes:"/>
         </StackPanel>
 
         <StackPanel Grid.Row="11" Grid.Column="3">
-            <ComboBox x:Name="ContratoIdComboBox"  FontSize="17"/> <!--SelectionChanged="ContratoIdComboBox_SelectionChanged"-->
+            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="InteresTextBox" FontSize="17">
+                <TextBox.Text>
+                    <Binding Path="prestamosSemanas.Interes" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
         </StackPanel>
 
         <StackPanel Grid.Row="13" Grid.Column="1">
-            <Label Content="Cantidad Pendiente:" FontSize="16"/>
+            <Label Content="Tiempo:"/>
         </StackPanel>
 
         <StackPanel Grid.Row="13" Grid.Column="3">
-            <Label x:Name="CantidadPendienteLabel" FontSize="16"/>
+            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="TiempoTextBox" FontSize="17">
+                <TextBox.Text>
+                    <Binding Path="prestamosSemanas.Tiempo" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
         </StackPanel>
 
         <StackPanel Grid.Row="15" Grid.Column="1">
-            <Label Content="Cantidad:" FontSize="16"/>
+            <Label Content="Capital:"/>
         </StackPanel>
 
         <StackPanel Grid.Row="15" Grid.Column="3">
-            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="CantidadTextBox" FontSize="16" HorizontalAlignment="Stretch">
+            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="CapitalTextBox" FontSize="17" HorizontalAlignment="Stretch">
                 <TextBox.Text>
-                    <Binding Path="ventasDetalle.Cantidad" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                    <Binding Path="ventasDetalle.Capital" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <!--<Binding.ValidationRules>
                             <src:CantidadValidacion ValidatesOnTargetUpdated="True"/>
                         </Binding.ValidationRules>-->
@@ -146,7 +182,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="17" Grid.RowSpan="3"  Grid.Column="1" Grid.ColumnSpan="5">
-            <DataGrid Style="{StaticResource DataGridStyle}" x:Name="VentasDataGrid" Height="91">
+            <DataGrid Style="{StaticResource DataGridStyle}" x:Name="VentasDataGrid" Height="91" SelectionChanged="VentasDataGrid_SelectionChanged">
                 <DataGrid.ItemsSource>
                     <Binding Path="listaVentas" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                         <!--<Binding.ValidationRules>
@@ -157,7 +193,7 @@
             </DataGrid>
         </StackPanel>
 
-        <StackPanel Grid.Row="21" Grid.Column="1">
+        <StackPanel Grid.Row="23" Grid.Column="1">
             <Button x:Name="AgregarButton" Content="Agregar" HorizontalContentAlignment="Right" FontSize="14" Width="80"><!--Click="AgregarButton_Click"-->
                 <Button.Background>
                     <ImageBrush Stretch="Uniform" ImageSource="/Resources/Agregar.png" AlignmentX="Left"/>
@@ -179,7 +215,7 @@
             </Button>
         </StackPanel>
 
-        <StackPanel Grid.Row="21" Grid.Column="3">
+        <StackPanel Grid.Row="23" Grid.Column="3">
             <Button x:Name="RemoverButton" Content="Remover" HorizontalContentAlignment="Right" FontSize="14" Width="80"><!--Click="RemoverButton_Click"-->
                 <Button.Background>
                     <ImageBrush Stretch="Uniform" ImageSource="/Resources/Remover.png" AlignmentX="Left"/>

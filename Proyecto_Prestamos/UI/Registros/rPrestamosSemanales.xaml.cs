@@ -21,5 +21,10 @@ namespace Proyecto_Prestamos.UI.Registros
         {
             InitializeComponent();
         }
+
+        private void VentasDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
